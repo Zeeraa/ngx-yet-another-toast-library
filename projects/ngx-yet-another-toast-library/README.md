@@ -1,5 +1,7 @@
 # ngx-yet-another-toast-library
 
+https://github.com/Zeeraa/ngx-yet-another-toast-library
+
 A lightweight, signal-based Angular toast notification library with Bootstrap 5 color palette support. No template tag required — the container mounts itself automatically.
 
 ## Requirements
