@@ -1,0 +1,117 @@
+// =============================================================================
+// Global CSS custom property defaults — match Bootstrap 5 subtle colours.
+// Override any of these variables in your own stylesheet to retheme the toasts.
+// =============================================================================
+
+:root {
+  // Info
+  --toast-info-bg: #cff4fc;
+  --toast-info-color: #055160;
+  --toast-info-border: #0dcaf0;
+
+  // Success
+  --toast-success-bg: #d1e7dd;
+  --toast-success-color: #0a3622;
+  --toast-success-border: #198754;
+
+  // Error
+  --toast-error-bg: #f8d7da;
+  --toast-error-color: #58151c;
+  --toast-error-border: #dc3545;
+
+  // Warning
+  --toast-warning-bg: #fff3cd;
+  --toast-warning-color: #664d03;
+  --toast-warning-border: #ffc107;
+
+  // Primary
+  --toast-primary-bg: #cfe2ff;
+  --toast-primary-color: #084298;
+  --toast-primary-border: #0d6efd;
+
+  // Secondary
+  --toast-secondary-bg: #e2e3e5;
+  --toast-secondary-color: #41464b;
+  --toast-secondary-border: #6c757d;
+
+  // Light
+  --toast-light-bg: #f8f9fa;
+  --toast-light-color: #636464;
+  --toast-light-border: #adb5bd;
+
+  // Dark
+  --toast-dark-bg: #d3d3d4;
+  --toast-dark-color: #141619;
+  --toast-dark-border: #212529;
+
+  // Container
+  --toast-z-index: 1080;
+  --toast-gap: 0.5rem;
+  --toast-offset: 1rem;
+
+  // Item shared
+  --toast-item-border-radius: 0.375rem;
+  --toast-item-padding: 0.75rem 1rem;
+  --toast-item-font-size: 0.875rem;
+  --toast-item-min-width: 280px;
+  --toast-item-max-width: 380px;
+  --toast-item-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+
+  // Animation
+  --toast-animation-duration: 0.25s;
+}
+
+// =============================================================================
+// Container layout & positioning
+// =============================================================================
+
+.toaster-container {
+  position: fixed;
+  z-index: var(--toast-z-index);
+  display: flex;
+  flex-direction: column;
+  gap: var(--toast-gap);
+  pointer-events: none;
+
+  > * {
+    pointer-events: all;
+  }
+
+  &--top-right {
+    top: var(--toast-offset);
+    right: var(--toast-offset);
+    align-items: flex-end;
+  }
+
+  &--top-left {
+    top: var(--toast-offset);
+    left: var(--toast-offset);
+    align-items: flex-start;
+  }
+
+  &--top-center {
+    top: var(--toast-offset);
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+
+  &--bottom-right {
+    bottom: var(--toast-offset);
+    right: var(--toast-offset);
+    align-items: flex-end;
+  }
+
+  &--bottom-left {
+    bottom: var(--toast-offset);
+    left: var(--toast-offset);
+    align-items: flex-start;
+  }
+
+  &--bottom-center {
+    bottom: var(--toast-offset);
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+}

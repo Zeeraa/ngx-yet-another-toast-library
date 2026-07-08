@@ -1,0 +1,29 @@
+{
+  "name": "ngx-yet-another-toast-library",
+  "version": "22.0.0",
+  "description": "A lightweight, signal-based Angular toast notification library with Bootstrap 5 color palette",
+  "keywords": [
+    "angular",
+    "toast",
+    "notification",
+    "signals"
+  ],
+  "author": "Anton Udén <udenanton@hotmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Zeeraa/ngx-yet-another-toast-library#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zeeraa/ngx-yet-another-toast-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zeeraa/ngx-yet-another-toast-library/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

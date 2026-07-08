@@ -1,0 +1,119 @@
+<main class="demo">
+  <header class="demo__header">
+    <h1 class="demo__title">ngx-yet-another-toast-library</h1>
+    <p class="demo__subtitle">A signal-based Angular toast notification library</p>
+  </header>
+
+  <section class="demo__section">
+    <h2 class="demo__section-title">Configuration</h2>
+    <div class="demo__controls">
+      <label class="demo__label">
+        Message
+        <input class="demo__input" type="text" [value]="message()" (input)="message.set($any($event.target).value)" />
+      </label>
+      <label class="demo__label">
+        Title <span class="demo__hint">(optional)</span>
+        <input class="demo__input" type="text" [value]="title()" (input)="title.set($any($event.target).value)" />
+      </label>
+      <label class="demo__label">
+        Duration (ms) <span class="demo__hint">— 0 = persistent</span>
+        <input class="demo__input" type="number" min="0" step="500" [value]="duration()" (input)="duration.set(+$any($event.target).value)" />
+      </label>
+      <label class="demo__label">
+        Position
+        <select class="demo__input" (change)="toastService.setPosition($any($event.target).value)">
+          <option value="top-right"     [selected]="toastService.position() === 'top-right'">Top Right</option>
+          <option value="top-left"      [selected]="toastService.position() === 'top-left'">Top Left</option>
+          <option value="top-center"    [selected]="toastService.position() === 'top-center'">Top Center</option>
+          <option value="bottom-right"  [selected]="toastService.position() === 'bottom-right'">Bottom Right</option>
+          <option value="bottom-left"   [selected]="toastService.position() === 'bottom-left'">Bottom Left</option>
+          <option value="bottom-center" [selected]="toastService.position() === 'bottom-center'">Bottom Center</option>
+        </select>
+      </label>
+      <div class="demo__checkboxes">
+        <label class="demo__label demo__label--inline">
+          <input type="checkbox" [checked]="dismissible()" (change)="dismissible.set($any($event.target).checked)" />
+          Dismissible
+        </label>
+        <label class="demo__label demo__label--inline">
+          <input type="checkbox" [checked]="progressBar()" (change)="progressBar.set($any($event.target).checked)" />
+          Progress bar
+        </label>
+        <label class="demo__label demo__label--inline">
+          <input type="checkbox" [checked]="disableAnimation()" (change)="disableAnimation.set($any($event.target).checked)" />
+          Disable animation
+        </label>
+        <label class="demo__label demo__label--inline">
+          <input type="checkbox" [checked]="toastService.newestOnTop()" (change)="toastService.setNewestOnTop($any($event.target).checked)" />
+          Newest on top
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section">
+    <h2 class="demo__section-title">Preset Types</h2>
+    <div class="demo__buttons">
+      <button class="demo__btn demo__btn--info"      (click)="toastService.info(message(), title() || undefined, options())">Info</button>
+      <button class="demo__btn demo__btn--success"   (click)="toastService.success(message(), title() || undefined, options())">Success</button>
+      <button class="demo__btn demo__btn--error"     (click)="toastService.error(message(), title() || undefined, options())">Error</button>
+      <button class="demo__btn demo__btn--warning"   (click)="toastService.warning(message(), title() || undefined, options())">Warning</button>
+      <button class="demo__btn demo__btn--primary"   (click)="toastService.primary(message(), title() || undefined, options())">Primary</button>
+      <button class="demo__btn demo__btn--secondary" (click)="toastService.secondary(message(), title() || undefined, options())">Secondary</button>
+      <button class="demo__btn demo__btn--light"     (click)="toastService.light(message(), title() || undefined, options())">Light</button>
+      <button class="demo__btn demo__btn--dark"      (click)="toastService.dark(message(), title() || undefined, options())">Dark</button>
+    </div>
+  </section>
+
+  <section class="demo__section">
+    <h2 class="demo__section-title">Custom Toast</h2>
+    <div class="demo__controls">
+      <label class="demo__label">
+        Background color
+        <div class="demo__color-row">
+          <input type="color" [value]="customBg()" (input)="customBg.set($any($event.target).value)" />
+          <span>{{ customBg() }}</span>
+        </div>
+      </label>
+      <label class="demo__label">
+        Text color
+        <div class="demo__color-row">
+          <input type="color" [value]="customColor()" (input)="customColor.set($any($event.target).value)" />
+          <span>{{ customColor() }}</span>
+        </div>
+      </label>
+      <label class="demo__label">
+        Accent border color
+        <div class="demo__color-row">
+          <input type="color" [value]="customBorder()" (input)="customBorder.set($any($event.target).value)" />
+          <span>{{ customBorder() }}</span>
+        </div>
+      </label>
+    </div>
+    <button
+      class="demo__btn demo__btn--custom"
+      (click)="toastService.custom({
+        message: message(),
+        title: title() || undefined,
+        backgroundColor: customBg(),
+        textColor: customColor(),
+        borderColor: customBorder(),
+        duration: duration(),
+        dismissible: dismissible(),
+        progressBar: progressBar(),
+        disableAnimation: disableAnimation()
+      })"
+    >
+      Show Custom Toast
+    </button>
+  </section>
+
+  <section class="demo__section">
+    <h2 class="demo__section-title">Actions</h2>
+    <div class="demo__buttons">
+      <button class="demo__btn demo__btn--dismiss-all" (click)="toastService.dismissAll()">
+        Dismiss All
+      </button>
+    </div>
+  </section>
+</main>

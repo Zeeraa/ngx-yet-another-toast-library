@@ -1,0 +1,126 @@
+/* Styles moved to app.scss */
+
+.demo__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.demo__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #0d6efd;
+}
+
+.demo__subtitle {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1.0625rem;
+}
+
+.demo__section {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+}
+
+.demo__section-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: #495057;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.625rem;
+}
+
+.demo__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.demo__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.demo__label--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-end;
+  padding-bottom: 0.25rem;
+}
+
+.demo__hint {
+  font-weight: 400;
+  color: #adb5bd;
+}
+
+.demo__input {
+  padding: 0.375rem 0.625rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+  }
+}
+
+.demo__color-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: #6c757d;
+  font-family: monospace;
+}
+
+.demo__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.demo__btn {
+  padding: 0.5rem 1.125rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter 0.15s;
+
+  &:hover {
+    filter: brightness(0.92);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &--info        { background: #0dcaf0; color: #000; }
+  &--success     { background: #198754; color: #fff; }
+  &--error       { background: #dc3545; color: #fff; }
+  &--warning     { background: #ffc107; color: #000; }
+  &--primary     { background: #0d6efd; color: #fff; }
+  &--secondary   { background: #6c757d; color: #fff; }
+  &--light       { background: #f8f9fa; color: #000; border: 1px solid #dee2e6; }
+  &--dark        { background: #212529; color: #fff; }
+  &--custom      { background: #6f42c1; color: #fff; }
+  &--dismiss-all { background: #dc3545; color: #fff; }
+}

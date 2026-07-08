@@ -1,0 +1,3 @@
+@for (toast of orderedToasts(); track toast.id) {
+  <toaster-item [toast]="toast" (dismiss)="toastService.dismiss($event)" />
+}

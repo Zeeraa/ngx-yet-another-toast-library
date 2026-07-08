@@ -1,0 +1,26 @@
+<div class="toaster-item__body">
+  @if (toast().title) {
+    <strong class="toaster-item__title">{{ toast().title }}</strong>
+  }
+  <span class="toaster-item__message">{{ toast().message }}</span>
+</div>
+
+@if (toast().dismissible) {
+  <button
+    type="button"
+    class="toaster-item__close"
+    aria-label="Close notification"
+    (click)="dismiss.emit(toast().id)"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+}
+
+@if (toast().progressBar && toast().duration > 0) {
+  @for (key of [timerKey()]; track key) {
+    <div
+      class="toaster-item__progress"
+      [style.animation-duration.ms]="toast().duration"
+    ></div>
+  }
+}
