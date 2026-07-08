@@ -1,6 +1,7 @@
 # ngx-yet-another-toast-library
 
-https://zeeraa.github.io/ngx-yet-another-toast-library/
+[![npm](https://img.shields.io/npm/v/ngx-yet-another-toast-library)](https://www.npmjs.com/package/ngx-yet-another-toast-library)
+[![demo](https://img.shields.io/badge/demo-live-blue)](https://zeeraa.github.io/ngx-yet-another-toast-library/)
 
 A lightweight, signal-based Angular toast notification library with Bootstrap 5 color palette support. No template tag required — the container mounts itself automatically.
 
