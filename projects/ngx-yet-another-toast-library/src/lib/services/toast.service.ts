@@ -14,6 +14,7 @@ const DEFAULT_DISMISSIBLE = true;
 @Service()
 export class ToastService implements OnDestroy {
   private readonly _defaultOptions = inject(TOASTER_DEFAULT_OPTIONS, { optional: true });
+  public readonly zIndex = this._defaultOptions?.zIndex ?? 1080;
 
   private readonly _toasts = signal<Toast[]>([]);
   private readonly _hoverSignals = new Map<string, WritableSignal<boolean>>();
@@ -88,6 +89,7 @@ export class ToastService implements OnDestroy {
       type,
       message,
       title,
+      zIndex: options.zIndex ?? this._defaultOptions?.zIndex ?? 1080,
       duration: options.duration ?? this._defaultOptions?.duration ?? DEFAULT_DURATION,
       dismissible: options.dismissible ?? this._defaultOptions?.dismissible ?? DEFAULT_DISMISSIBLE,
       disableAnimation: options.disableAnimation ?? this._defaultOptions?.disableAnimation ?? false,
@@ -140,6 +142,7 @@ export class ToastService implements OnDestroy {
       type: 'custom',
       message: data.message,
       title: data.title,
+      zIndex: data.zIndex ?? this._defaultOptions?.zIndex ?? 1080,
       duration: data.duration ?? this._defaultOptions?.duration ?? DEFAULT_DURATION,
       dismissible: data.dismissible ?? this._defaultOptions?.dismissible ?? DEFAULT_DISMISSIBLE,
       disableAnimation: data.disableAnimation ?? this._defaultOptions?.disableAnimation ?? false,

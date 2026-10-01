@@ -13,6 +13,7 @@ import { ToastService } from '../../services/toast.service';
     '[attr.role]': "'alert'",
     '[attr.aria-live]': "toast().type === 'error' ? 'assertive' : 'polite'",
     'aria-atomic': 'true',
+    '[style.z-index]': 'toast().zIndex',
     '[style.--toast-item-bg]': 'toast().backgroundColor || null',
     '[style.--toast-item-color]': 'toast().textColor || null',
     '[style.--toast-item-border-accent]': 'toast().borderColor || null',

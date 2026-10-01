@@ -1,6 +1,8 @@
 import { InjectionToken } from '@angular/core';
 
 export interface ToastOptions {
+  /** Stacking order for this toast. Defaults to the global z-index (1080). */
+  zIndex?: number;
   /** Auto-dismiss delay in milliseconds. Set to 0 to disable auto-dismiss. Defaults to 5000. */
   duration?: number;
   /** Whether a close button is shown. Defaults to true. */

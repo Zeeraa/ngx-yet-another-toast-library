@@ -11,6 +11,7 @@ import { ToastService } from '../../services/toast.service';
   encapsulation: ViewEncapsulation.None,
   host: {
     '[class]': 'hostClass()',
+    '[style.--toast-z-index]': 'toastService.zIndex',
     'aria-live': 'polite',
     'aria-atomic': 'false',
     'aria-label': 'Notifications',

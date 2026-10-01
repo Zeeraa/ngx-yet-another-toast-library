@@ -18,6 +18,8 @@ import { ToastService } from '../services/toast.service';
 export interface ToasterConfig {
   /** Position of the toast stack. Defaults to 'top-right'. */
   position?: ToastPosition;
+  /** Stacking order for the toast stack and default for individual toasts. Defaults to 1080. */
+  zIndex?: number;
   /** Default options applied to every toast. Per-call options take priority over these. */
   defaultOptions?: ToastOptions;
   /** Whether the newest toast appears closest to the screen edge. Defaults to true. */
@@ -38,7 +40,10 @@ export function provideToastService(config: ToasterConfig = {}): EnvironmentProv
   return makeEnvironmentProviders([
     {
       provide: TOASTER_DEFAULT_OPTIONS,
-      useValue: config.defaultOptions ?? {},
+      useValue: {
+        ...config.defaultOptions,
+        zIndex: config.zIndex ?? config.defaultOptions?.zIndex ?? 1080,
+      },
     },
     provideAppInitializer(() => {
       const platformId = inject(PLATFORM_ID);

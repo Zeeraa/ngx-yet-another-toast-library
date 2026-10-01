@@ -5,6 +5,7 @@ export interface Toast {
   readonly type: ToastType;
   readonly message: string;
   readonly title?: string;
+  readonly zIndex: number;
   readonly duration: number;
   readonly dismissible: boolean;
   readonly disableAnimation: boolean;

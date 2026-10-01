@@ -84,6 +84,7 @@ Pass a `ToasterConfig` object to `provideToastService()`:
 ```typescript
 provideToastService({
   position: 'bottom-right',    // default: 'top-right'
+  zIndex: 1080,                // default: 1080; per-toast options can override it
   newestOnTop: false,          // default: true
   defaultOptions: {
     duration: 3000,            // ms, 0 = no auto-dismiss. default: 5000
@@ -102,6 +103,7 @@ provideToastService({
 
 | Option             | Type      | Default | Description                                      |
 |--------------------|-----------|---------|--------------------------------------------------|
+| `zIndex`           | `number`  | global  | Override the global stacking order for this toast. |
 | `duration`         | `number`  | `5000`  | Auto-dismiss delay in ms. `0` disables it.       |
 | `dismissible`      | `boolean` | `true`  | Show a close button.                             |
 | `progressBar`      | `boolean` | `false` | Show a shrinking progress bar.                   |
