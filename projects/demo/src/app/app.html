@@ -2,6 +2,14 @@
   <header class="demo__header">
     <h1 class="demo__title">ngx-yet-another-toast-library</h1>
     <p class="demo__subtitle">A signal-based Angular toast notification library</p>
+    <button
+      class="demo__theme-toggle"
+      type="button"
+      [attr.aria-pressed]="theme() === 'dark'"
+      (click)="toggleTheme()"
+    >
+      {{ theme() === 'dark' ? 'Light mode' : 'Dark mode' }}
+    </button>
   </header>
 
   <section class="demo__section">

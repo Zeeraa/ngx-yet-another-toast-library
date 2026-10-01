@@ -139,7 +139,7 @@ toastService.custom({
 
 ## Theming
 
-Colors match the Bootstrap 5 subtle palette by default. Override any token globally in your `styles.scss`:
+Colors match the Bootstrap 5 subtle palette by default and automatically switch to Bootstrap's dark-mode subtle palette when `data-bs-theme="dark"` is set on the `<html>` element. Override any token globally in your `styles.scss`:
 
 ```scss
 :root {

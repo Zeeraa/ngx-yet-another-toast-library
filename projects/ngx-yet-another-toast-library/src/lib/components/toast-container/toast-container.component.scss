@@ -61,6 +61,40 @@
   --toast-animation-duration: 0.25s;
 }
 
+:root[data-bs-theme='dark'] {
+  --toast-info-bg: #032830;
+  --toast-info-color: #6edff6;
+  --toast-info-border: #087990;
+
+  --toast-success-bg: #051b11;
+  --toast-success-color: #75b798;
+  --toast-success-border: #0f5132;
+
+  --toast-error-bg: #2c0b0e;
+  --toast-error-color: #ea868f;
+  --toast-error-border: #842029;
+
+  --toast-warning-bg: #332701;
+  --toast-warning-color: #ffda6a;
+  --toast-warning-border: #997404;
+
+  --toast-primary-bg: #031633;
+  --toast-primary-color: #6ea8fe;
+  --toast-primary-border: #084298;
+
+  --toast-secondary-bg: #2b2f32;
+  --toast-secondary-color: #a7acb1;
+  --toast-secondary-border: #495057;
+
+  --toast-light-bg: #343a40;
+  --toast-light-color: #f8f9fa;
+  --toast-light-border: #495057;
+
+  --toast-dark-bg: #1a1d20;
+  --toast-dark-color: #dee2e6;
+  --toast-dark-border: #343a40;
+}
+
 // =============================================================================
 // Container layout & positioning
 // =============================================================================

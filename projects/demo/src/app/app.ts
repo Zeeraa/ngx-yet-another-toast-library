@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { ToastService } from 'ngx-yet-another-toast-library';
 
@@ -5,9 +6,14 @@ import { ToastService } from 'ngx-yet-another-toast-library';
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  host: {
+    '[attr.data-bs-theme]': 'theme()',
+  },
 })
 export class App {
+  private readonly document = inject(DOCUMENT);
   protected readonly toastService = inject(ToastService);
+  protected readonly theme = signal<'light' | 'dark'>('light');
 
   protected readonly message = signal('This is a notification message.');
   protected readonly title = signal('Notification');
@@ -26,4 +32,10 @@ export class App {
   protected readonly customBg = signal('#6f42c1');
   protected readonly customColor = signal('#ffffff');
   protected readonly customBorder = signal('#5a32a3');
+
+  protected toggleTheme(): void {
+    const nextTheme = this.theme() === 'light' ? 'dark' : 'light';
+    this.theme.set(nextTheme);
+    this.document.documentElement.setAttribute('data-bs-theme', nextTheme);
+  }
 }
