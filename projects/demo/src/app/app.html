@@ -38,6 +38,14 @@
           <option value="bottom-center" [selected]="toastService.position() === 'bottom-center'">Bottom Center</option>
         </select>
       </label>
+      <label class="demo__label">
+        Horizontal offset <span class="demo__hint">(optional CSS length)</span>
+        <input class="demo__input" type="text" [value]="offsetX()" placeholder="Default (1rem)" (input)="setOffsetX($any($event.target).value)" />
+      </label>
+      <label class="demo__label">
+        Vertical offset <span class="demo__hint">(optional CSS length)</span>
+        <input class="demo__input" type="text" [value]="offsetY()" placeholder="Default (1rem)" (input)="setOffsetY($any($event.target).value)" />
+      </label>
       <div class="demo__checkboxes">
         <label class="demo__label demo__label--inline">
           <input type="checkbox" [checked]="dismissible()" (change)="dismissible.set($any($event.target).checked)" />

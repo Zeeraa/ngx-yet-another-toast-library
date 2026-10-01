@@ -48,6 +48,8 @@
   --toast-z-index: 1080;
   --toast-gap: 0.5rem;
   --toast-offset: 1rem;
+  --toast-offset-x: var(--toast-offset);
+  --toast-offset-y: var(--toast-offset);
 
   // Item shared
   --toast-item-border-radius: 0.375rem;
@@ -112,38 +114,38 @@
   }
 
   &--top-right {
-    top: var(--toast-offset);
-    right: var(--toast-offset);
+    top: var(--toast-offset-y);
+    right: var(--toast-offset-x);
     align-items: flex-end;
   }
 
   &--top-left {
-    top: var(--toast-offset);
-    left: var(--toast-offset);
+    top: var(--toast-offset-y);
+    left: var(--toast-offset-x);
     align-items: flex-start;
   }
 
   &--top-center {
-    top: var(--toast-offset);
+    top: var(--toast-offset-y);
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
   }
 
   &--bottom-right {
-    bottom: var(--toast-offset);
-    right: var(--toast-offset);
+    bottom: var(--toast-offset-y);
+    right: var(--toast-offset-x);
     align-items: flex-end;
   }
 
   &--bottom-left {
-    bottom: var(--toast-offset);
-    left: var(--toast-offset);
+    bottom: var(--toast-offset-y);
+    left: var(--toast-offset-x);
     align-items: flex-start;
   }
 
   &--bottom-center {
-    bottom: var(--toast-offset);
+    bottom: var(--toast-offset-y);
     left: 50%;
     transform: translateX(-50%);
     align-items: center;

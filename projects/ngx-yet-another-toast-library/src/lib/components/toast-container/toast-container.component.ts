@@ -12,6 +12,8 @@ import { ToastService } from '../../services/toast.service';
   host: {
     '[class]': 'hostClass()',
     '[style.--toast-z-index]': 'toastService.zIndex',
+    '[style.--toast-offset-x]': 'toastService.offsetX()',
+    '[style.--toast-offset-y]': 'toastService.offsetY()',
     'aria-live': 'polite',
     'aria-atomic': 'false',
     'aria-label': 'Notifications',

@@ -24,12 +24,18 @@ export class ToastService implements OnDestroy {
   private readonly _onDismissSubject = new Subject<Toast>();
 
   private readonly _position = signal<ToastPosition>('top-right');
+  private readonly _offsetX = signal<string | null>(null);
+  private readonly _offsetY = signal<string | null>(null);
   private readonly _newestOnTop = signal<boolean>(true);
 
   public readonly toasts = this._toasts.asReadonly();
 
   /** The current position of the toast container. */
   public readonly position = this._position.asReadonly();
+  /** Configured horizontal container offset, or null to use the CSS default. */
+  public readonly offsetX = this._offsetX.asReadonly();
+  /** Configured vertical container offset, or null to use the CSS default. */
+  public readonly offsetY = this._offsetY.asReadonly();
   /** Whether the newest toast appears closest to the screen edge. */
   public readonly newestOnTop = this._newestOnTop.asReadonly();
 
@@ -41,6 +47,12 @@ export class ToastService implements OnDestroy {
   /** Updates the position of the toast container. */
   public setPosition(position: ToastPosition): void {
     this._position.set(position);
+  }
+
+  /** Sets either container offset; omitted values remain unchanged and null restores the CSS default. */
+  public setOffset(offsetX?: string | null, offsetY?: string | null): void {
+    if (offsetX !== undefined) this._offsetX.set(offsetX);
+    if (offsetY !== undefined) this._offsetY.set(offsetY);
   }
 
   /** Controls whether the newest toast appears closest to the screen edge. */

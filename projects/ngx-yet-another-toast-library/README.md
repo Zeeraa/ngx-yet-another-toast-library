@@ -84,6 +84,8 @@ Pass a `ToasterConfig` object to `provideToastService()`:
 ```typescript
 provideToastService({
   position: 'bottom-right',    // default: 'top-right'
+  offsetX: '16rem',            // optional CSS-length override; unset uses the existing 1rem inset
+  offsetY: '4rem',             // optional CSS-length override; unset uses the existing 1rem inset
   zIndex: 1080,                // default: 1080; per-toast options can override it
   newestOnTop: false,          // default: true
   defaultOptions: {
@@ -98,6 +100,19 @@ provideToastService({
 ### Positions
 
 `'top-right'` | `'top-left'` | `'top-center'` | `'bottom-right'` | `'bottom-left'` | `'bottom-center'`
+
+Change the position at runtime with `ToastService.setPosition()`:
+
+```typescript
+toastService.setPosition('bottom-right');
+```
+
+Change the container offsets at runtime with `ToastService.setOffset()`. Values are CSS lengths; omitted axes remain unchanged, and `null` restores that axis to the default CSS offset:
+
+```typescript
+toastService.setOffset('16rem', '4rem');
+toastService.setOffset('20rem'); // update only the horizontal offset
+```
 
 ### Per-toast options (`ToastOptions`)
 

@@ -18,6 +18,10 @@ import { ToastService } from '../services/toast.service';
 export interface ToasterConfig {
   /** Position of the toast stack. Defaults to 'top-right'. */
   position?: ToastPosition;
+  /** Optional horizontal inset override. Accepts a CSS length; unset uses the existing CSS inset (1rem). */
+  offsetX?: string;
+  /** Optional vertical inset override. Accepts a CSS length; unset uses the existing CSS inset (1rem). */
+  offsetY?: string;
   /** Stacking order for the toast stack and default for individual toasts. Defaults to 1080. */
   zIndex?: number;
   /** Default options applied to every toast. Per-call options take priority over these. */
@@ -54,6 +58,8 @@ export function provideToastService(config: ToasterConfig = {}): EnvironmentProv
       if (config.position) {
         toastService.setPosition(config.position);
       }
+
+      toastService.setOffset(config.offsetX, config.offsetY);
 
       if (config.newestOnTop !== undefined) {
         toastService.setNewestOnTop(config.newestOnTop);

@@ -18,6 +18,8 @@ export class App {
   protected readonly message = signal('This is a notification message.');
   protected readonly title = signal('Notification');
   protected readonly duration = signal(5000);
+  protected readonly offsetX = signal('');
+  protected readonly offsetY = signal('');
   protected readonly dismissible = signal(true);
   protected readonly progressBar = signal(false);
   protected readonly disableAnimation = signal(false);
@@ -32,6 +34,16 @@ export class App {
   protected readonly customBg = signal('#6f42c1');
   protected readonly customColor = signal('#ffffff');
   protected readonly customBorder = signal('#5a32a3');
+
+  protected setOffsetX(offsetX: string): void {
+    this.offsetX.set(offsetX);
+    this.toastService.setOffset(offsetX || null);
+  }
+
+  protected setOffsetY(offsetY: string): void {
+    this.offsetY.set(offsetY);
+    this.toastService.setOffset(undefined, offsetY || null);
+  }
 
   protected toggleTheme(): void {
     const nextTheme = this.theme() === 'light' ? 'dark' : 'light';
